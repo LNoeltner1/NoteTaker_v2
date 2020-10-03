@@ -8,13 +8,10 @@ const app = express();
 const PORT = 3000;
 
 const notes = [];
-// let note = notes[i];
 
 //MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-//REAL CODE
 
 //HTML ROUTES
 app.get(`/notes`, function (req, res) {
@@ -32,7 +29,7 @@ app.get(`*`, function (req, res) {
 //api routes
 app.get(`/api/notes`, function (req, res) {
   //reads db.json file
-  fs.readFile(db.json, "utf8", function (err, res) {
+  res.readFile(db.json, "utf8", function (err) {
     if (err) throw err;
   });
 });
@@ -48,12 +45,11 @@ app.post(`/api/notes`, function (req, res) {
 app.delete(`/api/notes/:id`, function (req, res) {
   //gets query params with id of note to delete
   //1. read all json,
-  fs.readFile(`/api/notes`, utf8, function (req, res) {});
+  fs.readFile(`/api/notes`, "utf8", function (req, res) {});
   //2. remove note with given id,
 
   //3. rewrite notes to db.json
   fs.writeFile();
-  no;
 });
 
 //LISTENER
@@ -61,3 +57,56 @@ app.delete(`/api/notes/:id`, function (req, res) {
 app.listen(PORT, function () {
   console.log(`Server listening in on ${PORT}`);
 });
+
+//fun code
+
+function rejoiceInTheEndTimes() {
+  if (sky === "bright") {
+    dontLook();
+    goUnderground();
+  } else if (sky === "dark") {
+    doWhatever();
+    startCult();
+  } else {
+    layDownAndAcceptFate();
+  }
+}
+
+function yellAtSky() {
+  if (time < 7 || time > 16) {
+    alert("I hate the Moon!");
+  } else if (7 < time < 16) {
+    alert("I hate the Sun!");
+  } else {
+    rejoiceInTheEndTimes();
+  }
+}
+
+function cry() {
+  if (tearNumber === 0) {
+    tearNumber++;
+  } else if (tearNumber >= 1) {
+    tearNumber++;
+  } else {
+    tearNumber++;
+  }
+}
+
+const forest = ["bears", "trees", "dirt"];
+
+let me = "Lauren";
+
+function moveToForest() {
+  forest.push(me);
+}
+
+if (instructionQualityThisWeek !== "good") {
+  yellAtSky();
+} else if (instructionQualityThisWeek === "bad") {
+  cry();
+  alert("Goodbye, cruel world.");
+  movetoForest();
+  getEatenByBear();
+} else {
+  succeed();
+}
